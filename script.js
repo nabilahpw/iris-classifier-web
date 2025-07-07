@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const predictButton = document.getElementById('predictButton');
     const predictionResult = document.getElementById('predictionResult');
 
-    // **PERUBAHAN PENTING DI SINI:** Sesuaikan URL API dengan endpoint Gradio.
-    // Biasanya '/run/predict' untuk Gradio Apps.
-    const API_URL = 'https://nabilahpw-iris.hf.space/run/predict'; 
+    // Pastikan URL API ini sudah benar untuk aplikasi Gradio Anda
+    // Biasanya ini adalah URL dasar Space Anda diikuti dengan '/run/predict'
+    const API_URL = 'https://nabilahpw-iris.hf.space/run/predict';
 
     predictButton.addEventListener('click', async () => {
         const sepalLength = parseFloat(sepalLengthInput.value);
@@ -23,8 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // **PERUBAHAN PENTING DI SINI:** Struktur data disesuaikan untuk API Gradio.
-        // Gradio biasanya mengharapkan input sebagai array di dalam properti 'data'.
+        // Struktur data yang diharapkan oleh API Gradio (sebagai array dalam properti 'data')
         const data = {
             "data": [sepalLength, sepalWidth, petalLength, petalWidth]
         };
@@ -34,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const response = await fetch(API_URL, {
-                method: 'POST', // Metode POST sudah benar
+                method: 'POST', // Metode POST adalah yang diharapkan oleh Gradio API
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -42,15 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (!response.ok) {
-                const errorBody = await response.text(); // Membaca body error sebagai teks
+                const errorBody = await response.text(); // Baca body error untuk detail lebih lanjut
                 throw new Error(`HTTP error! Status: ${response.status} - ${errorBody}`);
             }
 
             const result = await response.json();
-            // **PERUBAHAN PENTING DI SINI:** Cara mengakses hasil prediksi dari respons Gradio.
-            // Hasil biasanya ada di 'result.data[0]'
-            predictionResult.textContent = result.data[0] || "Prediction not available."; 
-            predictionResult.style.color = "#28A745"; // Green for success
+            // Hasil prediksi dari Gradio API biasanya ada di 'result.data[0]'
+            predictionResult.textContent = result.data[0] || "Prediction not available.";
+            predictionResult.style.color = "#28A745"; // Warna hijau untuk sukses
         } catch (error) {
             console.error('Error during prediction:', error);
             predictionResult.textContent = `Error: ${error.message}. Please check the API URL and your input.`;
