@@ -7,9 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const predictButton = document.getElementById('predictButton');
     const predictionResult = document.getElementById('predictionResult');
 
-    // Pastikan URL API ini sudah benar untuk aplikasi Gradio Anda
-    // Biasanya ini adalah URL dasar Space Anda diikuti dengan '/run/predict'
-    const API_URL = 'https://nabilahpw-iris.hf.space/predict';
+    // URL API seharusnya sudah benar, yaitu '/predict'
+    // Contoh dari Postman adalah https://nabilahpw-iris.hf.space/predict
+    const API_URL = 'https://nabilahpw-iris.hf.space/predict'; 
+    // ^^^ Perhatikan: Ini BUKAN '/run/predict' lagi, tetapi '/predict'
 
     predictButton.addEventListener('click', async () => {
         const sepalLength = parseFloat(sepalLengthInput.value);
@@ -23,17 +24,22 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Struktur data yang diharapkan oleh API Gradio (sebagai array dalam properti 'data')
+        // --- PERUBAHAN PENTING DI SINI ---
+        // Sesuaikan struktur data (body JSON) agar sama persis dengan yang berhasil di Postman
         const data = {
-            "data": [sepalLength, sepalWidth, petalLength, petalWidth]
+            "sepal_length": sepalLength.toString(), // Kirim sebagai string
+            "sepal_width": sepalWidth.toString(),   // Kirim sebagai string
+            "petal_length": petalLength.toString(), // Kirim sebagai string
+            "petal_width": petalWidth.toString()    // Kirim sebagai string
         };
+        // --- AKHIR PERUBAHAN PENTING ---
 
         predictionResult.textContent = "Predicting...";
         predictionResult.style.color = "#007BFF";
 
         try {
             const response = await fetch(API_URL, {
-                method: 'POST', // Metode POST adalah yang diharapkan oleh Gradio API
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -41,14 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (!response.ok) {
-                const errorBody = await response.text(); // Baca body error untuk detail lebih lanjut
+                const errorBody = await response.text();
                 throw new Error(`HTTP error! Status: ${response.status} - ${errorBody}`);
             }
 
             const result = await response.json();
-            // Hasil prediksi dari Gradio API biasanya ada di 'result.data[0]'
-            predictionResult.textContent = result.data[0] || "Prediction not available.";
-            predictionResult.style.color = "#28A745"; // Warna hijau untuk sukses
+            // --- PERUBAHAN PENTING DI SINI ---
+            // Akses hasil prediksi dari properti 'label' atau 'prediction'
+            // Berdasarkan Postman, responsnya adalah {"label": "Iris-setosa", "prediction": "0"}
+            predictionResult.textContent = result.label || "Prediction not available."; 
+            // Atau jika Anda ingin menampilkan nilai numeriknya: result.prediction
+            // predictionResult.textContent = result.prediction || "Prediction not available.";
+            // --- AKHIR PERUBAHAN PENTING ---
+
+            predictionResult.style.color = "#28A745"; // Green for success
         } catch (error) {
             console.error('Error during prediction:', error);
             predictionResult.textContent = `Error: ${error.message}. Please check the API URL and your input.`;
