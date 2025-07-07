@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Pastikan URL API ini sudah benar untuk aplikasi Gradio Anda
     // Biasanya ini adalah URL dasar Space Anda diikuti dengan '/run/predict'
-    const API_URL = 'https://nabilahpw-iris.hf.space/';
+    const API_URL = 'https://nabilahpw-iris.hf.space/predict';
 
     predictButton.addEventListener('click', async () => {
         const sepalLength = parseFloat(sepalLengthInput.value);
