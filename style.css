@@ -8,9 +8,9 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    /* Latar belakang dengan gradasi lembut dan gambar bunga Iris/Jepang */
-    background: linear-gradient(to bottom right, #e0f2f7, #f7e0f2); /* Gradasi biru muda ke ungu muda */
-    background-image: url('https://placehold.co/1920x1080/E0F2F7/8B008B/png?text=Japanese+Iris+Background'); /* Placeholder gambar latar belakang bunga iris/Jepang */
+    /* Latar belakang dengan gradasi ungu pastel dan gambar bunga Iris/Jepang */
+    background: linear-gradient(to bottom right, #e6e6fa, #f0e6fa); /* Gradasi ungu muda ke ungu lebih muda */
+    background-image: url('https://cnc-magazine.oramiland.com/parenting/images/shutterstock_2139571465_1.width-800.format-webp.webp'); /* Placeholder gambar latar belakang bunga iris/Jepang */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -39,7 +39,7 @@ body {
     left: -30px;
     width: 100px;
     height: 100px;
-    background-image: url('https://placehold.co/100x100/8B008B/FFFFFF/png?text=Iris'); /* Placeholder gambar iris */
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT36F9d_fPSmWkjxeAHd_WqLShVMOME8qXHlg&s'); /* Placeholder gambar iris */
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.2;
@@ -54,7 +54,7 @@ body {
     right: -30px;
     width: 100px;
     height: 100px;
-    background-image: url('https://placehold.co/100x100/8B008B/FFFFFF/png?text=Iris'); /* Placeholder gambar iris */
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT36F9d_fPSmWkjxeAHd_WqLShVMOME8qXHlg&s'); /* Placeholder gambar iris */
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.2;
@@ -63,7 +63,7 @@ body {
 }
 
 h1 {
-    color: #4CAF50; /* Tetap hijau, bisa diganti ke warna ungu/biru yang lebih lembut */
+    color: #9370DB; /* Ungu sedang */
     margin-bottom: 25px;
     font-size: 2.5em;
     font-weight: 700;
@@ -99,7 +99,7 @@ p {
 .input-group input[type="number"] {
     width: calc(100% - 24px); /* Menyesuaikan padding */
     padding: 12px;
-    border: 1px solid #a0d9b5; /* Border hijau lembut */
+    border: 1px solid #DDA0DD; /* Border pink muda */
     border-radius: 8px; /* Sudut membulat */
     box-sizing: border-box;
     font-size: 1.1em;
@@ -108,13 +108,13 @@ p {
 }
 
 .input-group input[type="number"]:focus {
-    border-color: #6a9c78; /* Border lebih gelap saat fokus */
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2); /* Bayangan fokus */
+    border-color: #BA55D3; /* Border ungu lebih gelap saat fokus */
+    box-shadow: 0 0 0 3px rgba(147, 112, 219, 0.2); /* Bayangan fokus ungu */
     outline: none;
 }
 
 button {
-    background: linear-gradient(to right, #66bb6a, #43a047); /* Gradasi hijau */
+    background: linear-gradient(to right, #EE82EE, #DA70D6); /* Gradasi ungu pink */
     color: white;
     padding: 15px 30px;
     border: none;
@@ -130,7 +130,7 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(to right, #43a047, #388e3c); /* Gradasi lebih gelap saat hover */
+    background: linear-gradient(to right, #DA70D6, #C71585); /* Gradasi lebih gelap saat hover */
     transform: translateY(-2px); /* Efek sedikit naik */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
@@ -152,8 +152,8 @@ button:hover {
 #predictionResult {
     font-size: 2.2em;
     font-weight: 700;
-    color: #8B008B; /* Warna ungu tua (warna iris) */
-    text-shadow: 1px 1px 3px rgba(139, 0, 139, 0.2);
+    color: #9370DB; /* Warna ungu sedang untuk hasil */
+    text-shadow: 1px 1px 3px rgba(147, 112, 219, 0.2);
     padding: 10px;
     background-color: #f9f9f9;
     border-radius: 8px;
