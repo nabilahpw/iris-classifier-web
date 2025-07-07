@@ -18,10 +18,13 @@ Anda dapat mencoba aplikasi ini secara langsung melalui URL berikut:
 - **Deployment Frontend**: Vercel
 
 ## 📄 Struktur Proyek
-.
+
 iris-classifier/
+
 ├── index.html    # Struktur dasar halaman web
+
 ├── style.css     # Styling dan tema visual aplikasi
+
 └── script.js     # Logika interaksi dengan API
 
 ## ⚙️ Cara Menjalankan Secara Lokal (Opsional)
