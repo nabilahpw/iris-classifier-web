@@ -5,7 +5,7 @@ Aplikasi web sederhana untuk mengklasifikasikan spesies bunga Iris berdasarkan f
 ## ✨ Fitur
 - **Klasifikasi Iris**: Memprediksi spesies Iris (Setosa, Versicolor, atau Virginica) berdasarkan input pengguna.
 - **Antarmuka Intuitif**: Desain web yang bersih dan mudah digunakan.
-- **Tema Jejepangan & Bunga Iris**: Tampilan visual yang menenangkan dengan nuansa ungu pastel dan sentuhan bunga Iris.
+- **Tema Visual Bunga Iris**: Tampilan visual yang menenangkan dengan nuansa ungu pastel dan sentuhan bunga Iris.
 
 ## 🚀 Demo Langsung
 Anda dapat mencoba aplikasi ini secara langsung melalui URL berikut:
