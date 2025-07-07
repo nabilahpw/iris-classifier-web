@@ -43,7 +43,3 @@ Aplikasi ini berinteraksi dengan API klasifikasi bunga Iris yang di-deploy di Hu
 
 URL API: https://nabilahpw-iris.hf.space/predict
 
-💖 Kontribusi
-Jika Anda memiliki saran atau ingin berkontribusi, silakan buka issue atau buat pull request.
-
-Selamat menikmati aplikasi klasifikasi bunga Iris Anda!
